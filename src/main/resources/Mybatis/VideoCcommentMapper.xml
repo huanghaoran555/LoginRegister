@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zking.repository.VideoCommentMapper">
+    <resultMap id="videoCommentsWithUser" type="com.zking.entity.VideoComment">
+        <id column="id" property="id"/>
+        <result column="commentUserId" property="commentUserId"/>
+        <result column="videoId" property="videoId"/>
+        <result column="content" property="content"/>
+        <result column="createTime" property="createTime"/>
+        <association property="user" javaType="com.zking.entity.UserEntity">
+            <id property="id" column="uid"/>
+            <result property="username" column="username"/>
+        </association>
+        <collection property="replyCommentList" column="id" select="com.zking.repository.ReplyCommentMapper.getReplyCommentsByCommentId"/>
+    </resultMap>
+    <select id="getVideoCommentsByArticleId" parameterType="java.lang.Integer" resultMap="videoCommentsWithUser">
+        select A.id,A.commentUserId,A.videoId,A.content,A.createTime,
+               U.id as uid,U.username from VideoComments A left join user U on A.commentUserId=U.id
+        where A.videoId=#{id}
+    </select>
+    <insert id="addVideoComment" parameterType="com.zking.entity.VideoComment" useGeneratedKeys="true" keyProperty="id">
+        insert into VideoComments(commentUserId,videoId,content) values(#{commentUserId},#{videoId},#{content})
+    </insert>
+</mapper>

@@ -1,0 +1,250 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<title>个人中心</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="releaseback/css/adminStyle.css" rel="stylesheet" type="text/css" />
+
+<title>视频网站</title>
+<script type="text/javascript" src="releaseback/js/jquery1.js"></script>
+<script type="text/javascript">
+	$(document).ready(
+			function() {
+				$(".div2").click(
+						function() {
+							$(this).next("div").slideToggle("slow").siblings(
+									".div3:visible").slideUp("slow");
+						});
+			});
+	function openurl(url) {
+		var rframe = parent.document.getElementById("rightFrame");
+		rframe.src = url;
+	}
+</script>
+<style>
+body {
+	margin: 0;
+	font-family: 微软雅黑;
+	background-image: url(images/1.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	background-color: #FFF;
+	
+}
+
+.title {
+float:left;
+    margin:0px 20px;
+	font-size: 28px;
+	color: #060606;
+	font-height: 55px;
+	font-family: 隶书;
+}
+
+.top2 {
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	height: 96px;
+	text-align: center;
+	color: black;
+	background-color:#FFF;
+	border-bottom-color: black;
+}
+
+.left {
+	position: absolute;
+	left: 0px;
+	top: 97px;
+	width: 200px;
+	height: 85%;
+	border-right: 1px solid ghostwhite;
+	color: lightgray;
+	font-size: 20px;
+	text-align: center;
+	background-color: #333;
+}
+
+.right {
+	position: absolute;
+	left: 200px;
+	top:97px;
+	width: 85.2%;
+	height: 85%;
+	border-top: 0px solid #484860;
+	font-size: 14px;
+	text-align: center;
+}
+
+.end {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	height: 30px;
+	text-align: center;
+	color: #556B2F;
+	font-size: 17px;
+	font-height: 20px;
+	font-family: 楷体;
+	background-color: #C0C0C0
+}
+
+.div1 {
+	text-align: center;
+	width: 200px;
+	padding-top: 10px;
+}
+
+.div2 {
+	height: 75px;
+	line-height: 70px;
+	cursor: pointer;
+	font-size: 18px;
+	position: relative;
+	border-bottom: #ccc 0px dotted;
+}
+
+.spgl {
+	position: absolute;
+	height: 20px;
+	width: 20px;
+	left: 40px;
+	top: 10px;
+	background: url(images/1.png);
+}
+
+.yhgl {
+	position: absolute;
+	height: 20px;
+	width: 20px;
+	left: 40px;
+	top: 10px;
+	background: url(images/4.png);
+}
+
+.gggl {
+	position: absolute;
+	height: 20px;
+	width: 20px;
+	left: 40px;
+	top: 10px;
+	background: url(images/4.png);
+}
+
+.zlgl {
+	position: absolute;
+	height: 20px;
+	width: 20px;
+	left: 40px;
+	top: 10px;
+	background: url(images/4.png);
+}
+
+.pjgl {
+	position: absolute;
+	height: 20px;
+	width: 20px;
+	left: 40px;
+	top: 10px;
+	background: url(images/4.png);
+}
+
+.tcht {
+	position: absolute;
+	height: 20px;
+	width: 20px;
+	left: 40px;
+	top: 10px;
+	background: url(images/2.png);
+}
+
+.div3 {
+	display: none;
+	cursor: pointer;
+	font-size: 15px;
+}
+
+.div3 ul {
+	margin: 0;
+	padding: 0;
+}
+
+.div3 li {
+	height: 30px;
+	line-height: 30px;
+	list-style: none;
+	border-bottom: #ccc 1px dotted;
+	text-align: center;
+}
+
+.a {
+	text-decoration: none;
+	color: ghostwhite;
+	font-size: 15px;
+}
+
+.a1 {
+	text-decoration: none;
+	color: #d8d8dd;
+	font-size: 18px;
+}
+</style>
+</head>
+<body>
+	<div class="top2">
+		<div class="logo">
+			<a href="UHome.html"><img src="images/logo.png" title="首页" /></a>
+		</div>
+		<div class="title" >
+			<h3>个人中心</h3>
+		</div>
+		<div class="fr top-link">
+			用户：<span th:text="${session.loginUser}"></span>
+		</div>
+	</div>
+
+	<div class="left">
+		<div class="div1">
+			<div class="div2">
+				<div class="spgl"></div>
+				视频管理
+			</div>
+			<div class="div3">
+				<li><a class="a" href="javascript:void(0);"
+					   onClick="openurl('uservideoQuery.html');">视频列表</a></li>
+			</div>
+			<div class="div2">
+				<div class="yhgl"></div>
+				用户管理
+			</div>
+			<div class="div3">
+				<ul>
+					<li><a class="a" href="javascript:void(0);"
+						   onClick="openurl('infoQuery.html');">信息管理</a></li>
+				</ul>
+			</div>
+
+			<div class="div2">
+				<div class="gggl"></div>
+				评价管理
+			</div>
+			<div class="div3">
+				<ul>
+					<li><a class="a" href="javascript:void(0);"
+						   onClick="openurl('deletecomment.html');">评价删除</a></li>
+				</ul>
+			</div>
+			<a class="a1" href="auth.html"><div class="div2">
+				<div class="tcht"></div>
+				退出后台
+			</div></a>
+		</div>
+	</div>
+	<div class="right">
+		<iframe id="rightFrame" name="rightFrame" width="100%" height="100%"
+				scrolling="auto" marginheight="0" marginwidth="0" align="center"
+				style="border: 0px solid #CCC; margin: 0; padding: 0;"></iframe>
+	</div>
+</body>
+</html>

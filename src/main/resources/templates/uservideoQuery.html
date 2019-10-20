@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="releaseback/Css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="releaseback/Css/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="releaseback/Css/style.css" />
+    <script type="text/javascript" src="releaseback/Js/jquery2.js"></script>
+    <script type="text/javascript" src="releaseback/Js/jquery2.sorted.js"></script>
+    <script type="text/javascript" src="releaseback/Js/bootstrap.js"></script>
+    <script type="text/javascript" src="releaseback/Js/ckform.js"></script>
+    <script type="text/javascript" src="releaseback/Js/common.js"></script>
+
+    <style type="text/css">
+        body {font-size: 20px;
+            padding-top: 10px;
+            padding-left: 5px;
+            background-color:#e9e7ef;
+        }
+        .sidebar-nav {
+            padding: 9px 0;
+        }
+        @media (max-width: 980px) {
+            /* Enable use of floated navbar text */
+            .navbar-text.pull-right {
+                float: none;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+<table class="table table-bordered table-hover definewidth m10">
+    <thead>
+    <tr>
+	     <th>序号</th>
+        <th>视频名称</th>
+        <th>分类</th>
+        <th>上传日期</th>
+        <th colspan="2">管理菜单</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="vdo:${vi}">
+        <td th:text="${vdo.video_id}"></td>
+        <td th:text="${vdo.movie_name}"></td>
+        <td th:text="${vdo.movie_type}"></td>
+        <td th:text="${vdo.upDate}"></td>
+        <td><a th:href="@{/alterVideo/(video_id=${vdo.video_id})}">修改</a></td>
+        <td><a th:href="@{/deleteVideo/}+${vdo.video_id}">删除</a></td>
+        </td>
+    </tr>
+    </tbody>
+       </table>
+</body>
+</html>
+<script>
+    $(function () {
+        
+
+		$('#addnew').click(function(){
+
+				window.location.href="goodsAdd.html";
+		 });
+
+    });
+	
+</script>
