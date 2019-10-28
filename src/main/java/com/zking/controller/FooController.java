@@ -121,7 +121,7 @@ public class FooController {
         return mv;
     }
 
-    //上传
+  /*  //上传
     @GetMapping("/upload")
     public ModelAndView upload() {
         ModelAndView mv = new ModelAndView("upload");
@@ -170,7 +170,7 @@ public class FooController {
             e.printStackTrace();
         }
         return "";
-    }
+    }*/
 
     //个人中心
     @RequestMapping("/admin")

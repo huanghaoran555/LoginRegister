@@ -22,7 +22,7 @@ public class VideoController {
     @Autowired
     private VideoDao videoDao;
     //查询所有影片信息
-    @RequestMapping("/uservideoQuery")
+   @RequestMapping("/uservideoQuery")
     public String findAll(Model model){
         List<VideoEntity> videoEntities=videoService.findAll();
         model.addAttribute("vi",videoEntities);
@@ -57,9 +57,9 @@ public class VideoController {
         videoServiceImpl.updateVideo(videoEntity);
         return "redirect:/uservideoQuery";
     }
-    @RequestMapping("/deleteVideo/{video_id}")
+   /* @RequestMapping("/deleteVideo/{video_id}")
     public String deleteVideo(@PathVariable Integer video_id){
         videoServiceImpl.delete(video_id);
         return "redirect:/uservideoQuery";
-    }
+    }*/
 }
