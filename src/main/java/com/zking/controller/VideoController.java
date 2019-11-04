@@ -10,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -21,20 +23,25 @@ public class VideoController {
     private VideoServiceImpl videoServiceImpl;
     @Autowired
     private VideoDao videoDao;
-    //查询所有影片信息
-   @RequestMapping("/uservideoQuery")
+    //视频管理查询所有影片信息
+    @RequestMapping("/uservideoQuery")
     public String findAll(Model model){
         List<VideoEntity> videoEntities=videoService.findAll();
         model.addAttribute("vi",videoEntities);
         return "uservideoQuery";
     }
-    //查询影片描述
+    //首页影片查询
+    @RequestMapping("/UHome")
+    public String findAll2(Model model){
+        List<VideoEntity> videoEntities=videoService.findAll();
+        model.addAttribute("vi",videoEntities);
+        return "UHome";
+    }
+    //查询影片播放地址
     @RequestMapping("/single")
-    public String desc(String movie_name,Model model){
-        if (movie_name!=null) {
-           List<VideoEntity> ve = videoServiceImpl.findByMovie_name("中国机长");
-            model.addAttribute("desc", ve);
-        }
+    public String findByPath(String Path,Model model){
+        VideoEntity ve =videoServiceImpl.findByPath(Path);
+        model.addAttribute("vd",ve);
         return "single";
     }
     //修改影片页面
@@ -57,9 +64,9 @@ public class VideoController {
         videoServiceImpl.updateVideo(videoEntity);
         return "redirect:/uservideoQuery";
     }
-   /* @RequestMapping("/deleteVideo/{video_id}")
+    @RequestMapping("/deleteVideo/{video_id}")
     public String deleteVideo(@PathVariable Integer video_id){
-        videoServiceImpl.delete(video_id);
+        videoServiceImpl.deleteVideo(video_id);
         return "redirect:/uservideoQuery";
-    }*/
+    }
 }

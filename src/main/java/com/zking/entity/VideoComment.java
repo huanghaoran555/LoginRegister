@@ -7,17 +7,50 @@ import java.util.List;
  */
 @Data
 public class VideoComment {
-    private Integer id;//主键id
-    private int commentUserId;//创建该评论的用户id
-    private UserEntity user;
-    private int videoId;//评论的文章id
-    private String content;//评论内容
-    private String createTime;//评论的日期
-    private List<ReplyComment> replyCommentList;
-    public VideoComment(){}
-    public VideoComment(int commentUserId,int videoId,String content){
-        this.videoId=videoId;
-        this.commentUserId=commentUserId;
-        this.content=content;
+    private int comment_id;
+    private String comment_info;
+    private int mid;
+    private int uid;
+    private String comment_time;
+    public int getComment_id() {
+        return comment_id;
     }
+
+    public void setComment_id(int comment_id) {
+        this.comment_id = comment_id;
+    }
+
+    public String getComment_info() {
+        return comment_info;
+    }
+
+    public void setComment_info(String comment_info) {
+        this.comment_info = comment_info;
+    }
+
+    public String getComment_time() {
+        return comment_time;
+    }
+
+    public void setComment_time(String comment_time) {
+        this.comment_time = comment_time;
+    }
+
+    public int getMid() {
+        return mid;
+    }
+
+    public void setMid(int mid) {
+        this.mid = mid;
+    }
+
+    public int getUid() {
+        return uid;
+    }
+
+    public void setUid(int uid) {
+        this.uid = uid;
+    }
+
+
 }

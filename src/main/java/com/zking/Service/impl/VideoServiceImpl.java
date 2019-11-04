@@ -9,31 +9,31 @@ import java.util.List;
 
 @Service("videoService")
 public class VideoServiceImpl implements VideoService {
-@Autowired
+    @Autowired
     VideoDao videoDao;
-@Override
+    @Override
     public List<VideoEntity> findAll(){
-    return videoDao.findAll();
-}
-@Override
-public  VideoEntity saveVideo(VideoEntity videoEntity){
-    VideoEntity v1=videoDao.save(videoEntity);
-    return v1;
-}
-@Override
+        return videoDao.findAll();
+    }
+    @Override
+    public  VideoEntity saveVideo(VideoEntity videoEntity){
+        VideoEntity v1=videoDao.save(videoEntity);
+        return v1;
+    }
+    @Override
     public VideoEntity findById(Integer video_id){
-    return videoDao.findById(video_id).get(0);
-}
-@Override
-public List<VideoEntity> findByMovie_name(String movie_name){
-    return videoDao.findByMovie_name(movie_name);
-}
-@Override
+        return videoDao.findById(video_id).get(0);
+    }
+    @Override
     public VideoEntity updateVideo(VideoEntity videoEntity){
-    return videoDao.save(videoEntity);
-}
-@Override
-    public void delete(Integer video_id){
-    videoDao.delete(video_id);
-  }
+        return videoDao.save(videoEntity);
+    }
+    @Override
+    public void deleteVideo(Integer video_id){
+        videoDao.delete(video_id);
+    }
+    @Override
+    public VideoEntity findByPath(String Path){
+        return videoDao.findByPath(Path);
+    }
 }

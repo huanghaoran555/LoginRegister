@@ -115,11 +115,11 @@ public class FooController {
     }
 
     //用户首页
-    @RequestMapping("/UHome")
+ /*   @RequestMapping("/UHome")
     public ModelAndView UHome() {
         ModelAndView mv = new ModelAndView("UHome");
         return mv;
-    }
+    }*/
 
   /*  //上传
     @GetMapping("/upload")
