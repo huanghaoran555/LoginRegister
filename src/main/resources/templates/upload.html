@@ -25,12 +25,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-          </button>
+          </button>-->
           <a class="navbar-brand" href="UHome.html"><h1><img src="images/logo.png" alt="" /></h1></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
@@ -61,6 +61,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<!--上传结果提示-->
 						<div class="upload-info">
 							<h4><input type="submit" value="上传视频" onclick="window.location.href='FooController?code=uploadvideo'"></h4>
+							<h4 style="margin-left: -93px">
+								视频类型：
+								<select name="videos" style="width: 89px">
+									<option value="动作">动作</option>
+									<option value="喜剧">喜剧</option>
+									<option value="好莱坞">好莱坞</option>
+									<option value="篮球">篮球</option>
+									<option value="足球">足球</option>
+									<option value="游泳">游泳</option>
+									<option value="赛车">赛车</option>
+									<option value="音乐">音乐</option>
+									<option value="新闻">新闻</option>
+								</select>
+							</h4>
 						</div>
 						<div th:if="${message}">
 							<h3 th:text="${message}"/>
@@ -72,13 +86,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</form>
 			<!-- //footer -->
 		<div class="clearfix"> </div>
-	<div class="drop-menu">
-		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu4">
-		  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Regular link</a></li>
-		  <li role="presentation" class="disabled"><a role="menuitem" tabindex="-1" href="#">Disabled link</a></li>
-		  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another link</a></li>
-		</ul>
-	</div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
     <meta charset="UTF-8">
@@ -21,41 +21,36 @@
             padding: 9px 0;
         }
 
-        @media (max-width: 980px) {
-            /* Enable use of floated navbar text */
-            .navbar-text.pull-right {
-                float: none;
-                padding-left: 5px;
-                padding-right: 5px;
-            }
+            @media (max-width: 980px) {
+                /* Enable use of floated navbar text */
+                .navbar-text.pull-right {
+                    float: none;
+                    padding-left: 5px;
+                    padding-right: 5px;
+                }
         }
-
-
     </style>
 </head>
+<!--评论管理-->
 <body>
 <table class="table table-bordered table-hover definewidth m10">
     <thead>
     <tr>
+        <th>电影</th>
         <th>评价内容</th>
-        <th>评价人</th>
         <th>评价时间</th>
         <th>操作</th>
-       
     </tr>
     </thead>
-	    
-        <tr>
-                
-                <td>你来人间一趟，你要看看太阳，和你的心上人，一起走在街上。</td>
-				<td><a href="studentdetail.html">小强</a></td>
-                <td>2016.02.12</td>
-                <td><button type="button"  id="deletecomment">删除</button></td>
-               
+    <tbody>
+        <tr th:each="cmm:${com}">
+                <td th:text="${cmm.movie_name}"></td>
+                <td th:text="${cmm.comment_id}"></td>
+                <td th:text="${cmm.comment_info}"></td>
+                <td th:text="${cmm.comment_time}"></td>
+                <td><a th:href="@{/deletecomment2/}+${cmm.comment_id}">删除</a></td>
         </tr>
-           
-       
-       </table>
-
+    </tbody>
+</table>
 </body>
 </html>

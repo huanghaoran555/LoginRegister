@@ -19,7 +19,7 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
 /**
- * Created by Administrator on 2017/5/12.
+ * Created by Administrator on 2019/11/12.
  */
 
 @RestController
@@ -53,7 +53,6 @@ public class FooController {
         //登录判断
         if (username.isEmpty() || password.isEmpty()) {
             success.setViewName("auth");
-            //success.addObject("tip2","用户名或密码不能为空");
             map.put("tip2", "用户名或密码不能为空");
             return success;
         }
@@ -63,7 +62,6 @@ public class FooController {
             //登录成功并跳转
             success.setViewName("UHome");
         } else {
-            //success.setViewName("404");
             success.setViewName("auth");
             map.put("tip2", "用户名或密码错误");
             return success;
@@ -80,7 +78,6 @@ public class FooController {
         //注册信息为空的条件判断
         if (username.isEmpty() || password.isEmpty() || email.isEmpty() || phone.isEmpty()||sex.isEmpty()) {
             success.setViewName("reg");
-            // success.addObject("tip1","信息不能为空");
             map.put("tip1", "信息不能为空");
             return success;
         }
@@ -113,64 +110,6 @@ public class FooController {
         ModelAndView mv = new ModelAndView("Home");
         return mv;
     }
-
-    //用户首页
- /*   @RequestMapping("/UHome")
-    public ModelAndView UHome() {
-        ModelAndView mv = new ModelAndView("UHome");
-        return mv;
-    }*/
-
-  /*  //上传
-    @GetMapping("/upload")
-    public ModelAndView upload() {
-        ModelAndView mv = new ModelAndView("upload");
-        return mv;
-    }
-
-    private static String UPLOAD_FOLDER = "G://MyUpload//";
-
-    //上传处理
-    @PostMapping("/upload")
-    public  String singleFileUpload(@RequestParam("file") MultipartFile file,
-                                   RedirectAttributes redirectAttributes,
-                                   HttpServletRequest request, HttpServletResponse response) {
-        String code=request.getParameter("code");
-        if (file.isEmpty()) {
-            redirectAttributes.addFlashAttribute("message", "请选择视频上传");
-            //return "redirect:/upload";
-            try {
-                    request.getRequestDispatcher("upload.html").forward(request, response);
-            } catch (ServletException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        try {
-            //拿到视频并保存
-            byte[] bytes = file.getBytes();
-            String filename = file.getOriginalFilename();
-            Path path = Paths.get(UPLOAD_FOLDER + filename);
-            Files.write(path, bytes);
-            //将文件保存在static文件夹
-            file.transferTo(new File(UPLOAD_FOLDER + filename));
-            redirectAttributes.addFlashAttribute("message", "上传成功" + file.getOriginalFilename());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        //return "redirect:/upload";
-        try {
-            if (code!=null&&code.equals("uploadvideo")) {
-                request.getRequestDispatcher("upload.html").forward(request, response);
-            }
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return "";
-    }*/
 
     //个人中心
     @RequestMapping("/admin")
@@ -209,32 +148,23 @@ public class FooController {
         ModelAndView mv = new ModelAndView("news");
         return mv;
     }
-    //播放页面
-   /* @RequestMapping("/single")
-    public ModelAndView single(){
-        ModelAndView mv = new ModelAndView("single");
-        return mv;
-    }*/
+
     @RequestMapping("/videosAdd")
     public ModelAndView videosAdd(){
         ModelAndView mv = new ModelAndView("videosAdd");
         return mv;
     }
-/*    @RequestMapping("/infoQuery")
-    public ModelAndView infoQuery(){
-        ModelAndView mv = new ModelAndView("infoQuery");
-        return mv;
-    }*/
+
     @RequestMapping("/studentdetail")
     public ModelAndView studentdetail(){
         ModelAndView mv = new ModelAndView("studentdetail");
         return mv;
     }
-    @RequestMapping("/deletecomment")
+   /* @RequestMapping("/deletecomment")
     public ModelAndView deletecomment(){
         ModelAndView mv = new ModelAndView("deletecomment");
         return mv;
-    }
+    }*/
     @RequestMapping("/documentAdd")
     public ModelAndView documentAdd(){
         ModelAndView mv = new ModelAndView("documentAdd");
@@ -245,9 +175,5 @@ public class FooController {
         ModelAndView mv = new ModelAndView("usercommentlist");
         return mv;
     }
-   /* @RequestMapping("/uservideoQuery")
-    public ModelAndView uservideoQuery(){
-        ModelAndView mv = new ModelAndView("uservideoQuery");
-        return mv;
-    }*/
+
 }

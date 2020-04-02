@@ -1,17 +1,35 @@
 package com.zking.entity;
-
 import lombok.Data;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.List;
 /**
- * 视频一级评论
+ * 视频评论
  */
-@Data
+@Entity
 public class VideoComment {
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private int comment_id;
     private String comment_info;
-    private int mid;
+    private int Video_id;
     private int uid;
     private String comment_time;
+
+    public VideoComment(){
+    }
+
+    public VideoComment(int comment_id,String comment_info,int Video_id,int uid,String comment_time){
+        this.comment_id=comment_id;
+        this.comment_info=comment_info;
+        this.comment_time=comment_time;
+        this.Video_id=Video_id;
+        this.uid=uid;
+    }
+
     public int getComment_id() {
         return comment_id;
     }
@@ -36,12 +54,12 @@ public class VideoComment {
         this.comment_time = comment_time;
     }
 
-    public int getMid() {
-        return mid;
+    public int getVideo_id() {
+        return Video_id;
     }
 
-    public void setMid(int mid) {
-        this.mid = mid;
+    public void setVideo_id(int Video_id) {
+        this.Video_id = Video_id;
     }
 
     public int getUid() {
@@ -51,6 +69,14 @@ public class VideoComment {
     public void setUid(int uid) {
         this.uid = uid;
     }
-
-
+@Override
+    public String toString(){
+    return "VideoComment{" +
+            "comment_id=" + comment_id +
+            ", comment_info='" + comment_info + '\'' +
+            ", comment_time='" + comment_time + '\'' +
+            ", Video_id='" + Video_id + '\'' +
+            ", uid=" + uid +
+            '}';
+}
 }

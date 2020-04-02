@@ -1,8 +1,10 @@
 package com.zking.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
+@Table(name = "video_entity")
 public class VideoEntity {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -11,17 +13,21 @@ public class VideoEntity {
     private String description;
     private String movie_type;
     private Integer play_num;
-    private Integer comment_num;
+    private Integer comment_id;
     private String upDate;
     private String Path;
 
-    public VideoEntity(Integer video_id, String movie_name, String description, String movie_type, Integer play_num, Integer comment_num,String upDate,String Path) {
+    @OneToMany
+    @JoinColumn(name ="video_id")
+    private List<VideoComment> videoComments;
+
+    public VideoEntity(Integer video_id, String movie_name, String description, String movie_type, Integer play_num, Integer comment_id,String upDate,String Path) {
         this.video_id = video_id;
         this.movie_name = movie_name;
         this.description = description;
         this.movie_type = movie_type;
         this.play_num = play_num;
-        this.comment_num = comment_num;
+        this.comment_id = comment_id;
         this.upDate=upDate;
         this.Path=Path;
     }
@@ -69,12 +75,12 @@ public class VideoEntity {
         this.play_num = play_num;
     }
     @Basic
-    public Integer getComment_num() {
-        return comment_num;
+    public Integer getComment_id() {
+        return comment_id;
     }
 
-    public void setComment_num(Integer comment_num) {
-        this.comment_num = comment_num;
+    public void setComment_id(Integer comment_id) {
+        this.comment_id = comment_id;
     }
     @Basic
     public String getUpDate() {
@@ -98,7 +104,7 @@ public class VideoEntity {
                 ", description='" + description + '\'' +
                 ", movie_type='" + movie_type + '\'' +
                 ", play_num=" + play_num +
-                ", comment_num=" + comment_num +
+                ", comment_id=" + comment_id +
                 ", upDate=" + upDate +
                 ", Path=" + Path +
                 '}';

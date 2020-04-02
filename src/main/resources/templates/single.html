@@ -27,10 +27,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <nav class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container-fluid">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="UHome.html">
-				<h1>
+			<a class="navbar-brand" href="/UHome.html">
 					<img src="../static/images/logo.png" alt="" />
-				</h1>
 			</a>
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
@@ -42,7 +40,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="header-top-right">
 				<div class="file">
-					<a href="upload.html">上传</a>
+					<a href="/upload.html">上传</a>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
@@ -60,17 +58,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 	<div class="drop-navigation drop-navigation">
 		<ul class="nav nav-sidebar">
-			<li><a href="UHome.html" class="home-icon"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>主页</a></li>
-			<li><a href="history.html" class="sub-icon"><span class="glyphicon glyphicon-home glyphicon-hourglass" aria-hidden="true"></span>历史</a></li>
+			<li><a id="home" href="/UHome.html" class="home-icon"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>主页</a></li>
+			<li><a href="/history.html" class="sub-icon"><span class="glyphicon glyphicon-home glyphicon-hourglass" aria-hidden="true"></span>历史</a></li>
 			<li><a href="#" class="menu1"><span class="glyphicon glyphicon-film" aria-hidden="true"></span>电影<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a></li>
 			<ul class="cl-effect-2">
-				<li><a href="movies.html">动作</a></li>
-				<li><a href="movies.html">喜剧</a></li>
-				<li><a href="movies.html">好莱坞</a></li>
+				<li><a href="/movies.html">动作</a></li>
+				<li><a href="/movies.html">喜剧</a></li>
+				<li><a href="/movies.html">好莱坞</a></li>
 			</ul>
 			<!-- script-for-menu -->
 			<script>
+				$("#home").click(function () {
+					window.location.href = "localhost:8081/UHome";
+                });
+
                 $( "li a.menu1" ).click(function() {
+
                     $( "ul.cl-effect-2" ).slideToggle( 300, function() {
                         // Animation complete.
                     });
@@ -78,21 +81,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</script>
 			<li><a href="#" class="menu"><span class="glyphicon glyphicon-film glyphicon-king" aria-hidden="true"></span>体育<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a></li>
 			<ul class="cl-effect-1">
-				<li><a href="sports.html">篮球</a></li>
-				<li><a href="sports.html">足球</a></li>
-				<li><a href="sports.html">游泳</a></li>
-				<li><a href="sports.html">赛车</a></li>
+				<li><a href="/sports.html">篮球</a></li>
+				<li><a href="/sports.html">足球</a></li>
+				<li><a href="/sports.html">游泳</a></li>
+				<li><a href="/sports.html">赛车</a></li>
 			</ul>
 			<!-- script-for-menu -->
 			<script>
-                $( "li a.menu" ).click(function() {
-                    $( "ul.cl-effect-1" ).slideToggle( 300, function() {
-                        // Animation complete.
-                    });
-                });
-			</script>
-			<li><a href="movies.html" class="song-icon"><span class="glyphicon glyphicon-music" aria-hidden="true"></span>音乐</a></li>
-			<li><a href="news.html" class="news-icon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>新闻</a></li>
+            $( "li a.menu" ).click(function( {
+                $( "ul.cl-effect-1" ).slideToggle( 300, function() {
+                    // Animation complete.
+                });)
+                 });
+		    </script>
+			<li><a href="/movies.html" class="song-icon"><span class="glyphicon glyphicon-music" aria-hidden="true"></span>音乐</a></li>
+			<li><a href="/news.html" class="news-icon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>新闻</a></li>
 		</ul>
 		<!-- script-for-menu -->
 		<script>
@@ -149,10 +152,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<p style="font-size: large">所有评论</p>
 					<section class="tent_info">
 						<div class="col-md-12 col-sm-12 col-xl-12 textarea one">
-							<form action="/single" method="post">
+							<form action="/addComment" method="post">
 								<textarea class="text_send" id="text_send" name="comment_info"></textarea>
-								<div class="col-md-12 col-sm-12 col-xl-12 btn btn_send">提交</div>
-								<!-- <input type="submit" class="col-md-12 col-sm-12 col-xl-12 btn btn_send" value="提交">-->
+								<!--<div class="col-md-12 col-sm-12 col-xl-12 btn btn_send">提交</div>-->
+								 <input type="submit" class="col-md-12 col-sm-12 col-xl-12 btn btn_send" value="提交">
 							</form>
 						</div>
 					</section>
@@ -403,18 +406,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- //footer -->
 </div>
 <div class="clearfix"> </div>
-<div class="drop-menu">
-	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu4">
-		<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Regular link</a></li>
-		<li role="presentation" class="disabled"><a role="menuitem" tabindex="-1" href="#">Disabled link</a></li>
-		<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another link</a></li>
-	</ul>
-</div>
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="../static/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../static/js/jquery-min.js"></script>
+<script src="../static/js/bootstrap.min2.js"></script>
+<script type="text/javascript" src="../static/js/jquery-min2.js"></script>
 <script type="text/javascript" src="../static/js/index.js"></script>
 </body>
 </html>
